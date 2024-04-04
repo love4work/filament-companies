@@ -168,6 +168,15 @@ class FilamentCompaniesServiceProvider extends PanelProvider
 ```
 > 🚧 Make sure to create a panel with the id you're passing
 
+### The Default Panel
+
+If you want users to directly access the Company panel's Register or Login page from the Laravel Welcome page, ensure the Company panel is set as the default in Filament. This involves two key steps:
+
+1. Remove Default from User Panel: Ensure the User panel or any previously default panel does not use the `->default()` method. 
+2. Set Company Panel as Default: Apply the `->default()` method to your Company panel configuration to make it the default entry point.
+
+By making the Company panel the default, links to Register or Login on the Laravel Welcome page will lead directly to the Company panel's authentication pages.
+
 ### Translations and Views
 
 If you wish to translate the package, you may publish the language files using:
