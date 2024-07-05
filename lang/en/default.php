@@ -346,4 +346,8 @@ return [
             'delete_company' => 'Once a company is deleted, all of its resources and data will be permanently deleted. Before deleting this company, please download any data or information regarding this company that you wish to retain.',
         ],
     ],
+
+    'validation' => [
+        'terms' => 'Terms of Service and Privacy Policy',
+    ]
 ];

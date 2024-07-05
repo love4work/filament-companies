@@ -351,4 +351,8 @@ return [
             'delete_company' => 'Jakmile je společnost smazána, všechny její zdroje a data budou trvale smazány. Před smazáním této společnosti si prosím stáhněte všechna data nebo informace o této společnosti, které chcete zachovat.',
         ],
     ],
+
+    'validation' => [
+        'terms' => 'Podmínky služby a Zásady ochrany osobních údajů',
+    ]
 ];
