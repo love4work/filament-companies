@@ -34,7 +34,7 @@ class Register extends FilamentRegister
                 'terms_of_service' => $this->generateFilamentLink(Terms::getRouteName(), __('filament-companies::default.links.terms_of_service')),
                 'privacy_policy' => $this->generateFilamentLink(PrivacyPolicy::getRouteName(), __('filament-companies::default.links.privacy_policy')),
             ])))
-            ->validationAttribute(__('filament-companies::default.validation.terms'))
+            ->validationAttribute(__('filament-companies::default.errors.terms'))
             ->accepted();
     }
 

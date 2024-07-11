@@ -98,6 +98,7 @@ return [
         'signin_not_found' => 'Účet s tímto :Provider přihlášením nebyl nalezen. Registrovat nebo zkuste jiné přihlášení.',
         'user_belongs_to_company' => 'Tento uživatel již patří do společnosti.',
         'valid_role' => ':attribute musí být platná role.',
+        'terms' => 'Podmínky služby a Zásady ochrany osobních údajů',
     ],
 
     'descriptions' => [
@@ -351,8 +352,4 @@ return [
             'delete_company' => 'Jakmile je společnost smazána, všechny její zdroje a data budou trvale smazány. Před smazáním této společnosti si prosím stáhněte všechna data nebo informace o této společnosti, které chcete zachovat.',
         ],
     ],
-
-    'validation' => [
-        'terms' => 'Podmínky služby a Zásady ochrany osobních údajů',
-    ]
 ];
