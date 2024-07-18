@@ -93,6 +93,7 @@ return [
         'signin_not_found' => 'An account with this :Provider sign in was not found. Please register or try a different sign in method.',
         'user_belongs_to_company' => 'This user already belongs to the company.',
         'valid_role' => 'The :attribute must be a valid role.',
+        'terms' => 'Terms of Service and Privacy Policy',
     ],
 
     'descriptions' => [
