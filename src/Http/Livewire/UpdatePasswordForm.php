@@ -30,11 +30,11 @@ class UpdatePasswordForm extends Component
     {
         $this->resetErrorBag();
 
-        $updater->update(Auth::user(), $this->state);
+        $updater->update($this->user, $this->state);
 
         if (session() !== null) {
             session()->put([
-                'password_hash_' . Auth::getDefaultDriver() => Auth::user()?->getAuthPassword(),
+                'password_hash_' . Auth::getDefaultDriver() => $this->user?->getAuthPassword(),
             ]);
         }
 
@@ -46,7 +46,7 @@ class UpdatePasswordForm extends Component
 
         if (FilamentCompanies::hasNotificationsFeature()) {
             if (method_exists($updater, 'passwordUpdated')) {
-                $updater->passwordUpdated(Auth::user(), $this->state);
+                $updater->passwordUpdated($this->user, $this->state);
             } else {
                 $this->passwordUpdated();
             }

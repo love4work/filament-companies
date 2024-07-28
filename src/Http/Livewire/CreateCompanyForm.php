@@ -30,7 +30,7 @@ class CreateCompanyForm extends Component
     {
         $this->resetErrorBag();
 
-        $creator->create(Auth::user(), $this->state);
+        $creator->create($this->user, $this->state);
 
         $name = $this->state['name'];
 

@@ -30,7 +30,7 @@ class SetPasswordForm extends Component
     {
         $this->resetErrorBag();
 
-        $setter->set(Auth::user(), $this->state);
+        $setter->set($this->user, $this->state);
 
         $this->state = [
             'password' => '',
@@ -39,7 +39,7 @@ class SetPasswordForm extends Component
 
         if (FilamentCompanies::hasNotificationsFeature()) {
             if (method_exists($setter, 'passwordSet')) {
-                $setter->passwordSet(Auth::user(), $this->state);
+                $setter->passwordSet($this->user, $this->state);
             } else {
                 $this->passwordSet();
             }
