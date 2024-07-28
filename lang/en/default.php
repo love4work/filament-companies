@@ -85,6 +85,7 @@ return [
         'email_not_found' => 'We were unable to find a registered user with this email address.',
         'employee_already_belongs_to_company' => 'This employee already belongs to the company.',
         'employee_already_invited' => 'This employee has already been invited to the company.',
+        'generic_error' => 'An error occurred while processing your request.',
         'invalid_password' => 'The password you entered is invalid.',
         'no_email_with_account' => 'No email address is associated with this :Provider account. Please try a different account.',
         'password_does_not_match' => 'The provided password does not match your current password.',
