@@ -56,8 +56,10 @@ class ConnectedAccountsForm extends Component
      */
     public function setAvatarAsProfilePhoto(string | int $accountId): RedirectResponse | Redirector
     {
-        $account = Auth::user()->connectedAccounts
-            ->where('user_id', ($user = Auth::user())->getAuthIdentifier())
+        $user = $this->user;
+
+        $account = $this->user?->connectedAccounts
+            ->where('user_id', $user?->getAuthIdentifier())
             ->where('id', $accountId)
             ->first();
 
@@ -74,7 +76,7 @@ class ConnectedAccountsForm extends Component
     public function removeConnectedAccount(string | int $accountId): void
     {
         DB::table('connected_accounts')
-            ->where('user_id', Auth::user()?->getAuthIdentifier())
+            ->where('user_id', $this->user?->getAuthIdentifier())
             ->where('id', $accountId)
             ->delete();
 
@@ -96,7 +98,11 @@ class ConnectedAccountsForm extends Component
      */
     public function getAccountsProperty(): Collection
     {
-        return Auth::user()->connectedAccounts
+        if ($this->user?->connectedAccounts === null) {
+            return collect();
+        }
+
+        return $this->user->connectedAccounts
             ->map(static function (ConnectedAccount $account) {
                 return (object) $account->getSharedData();
             });
