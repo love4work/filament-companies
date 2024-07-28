@@ -42,7 +42,7 @@
                                     </x-filament::button>
                                 @endif
 
-                                @if ($this->user->password !== null || $this->accounts->count() > 1)
+                                @if ($this->user?->password !== null || $this->accounts->count() > 1)
                                     <x-filament::button color="danger" size="sm"
                                                         wire:click="confirmRemove('{{ $account->id }}')">
                                         {{ __('filament-companies::default.buttons.remove') }}

@@ -36,7 +36,7 @@ class UpdateProfileInformationForm extends Component
      */
     public function mount(): void
     {
-        $user = Auth::user();
+        $user = $this->user;
 
         $this->state = ['email' => $user?->email, ...$user?->withoutRelations()->toArray()];
     }
@@ -49,7 +49,7 @@ class UpdateProfileInformationForm extends Component
         $this->resetErrorBag();
 
         $updater->update(
-            Auth::user(),
+            $this->user,
             $this->photo
                 ? [...$this->state, 'photo' => $this->photo]
                 : $this->state
@@ -61,7 +61,7 @@ class UpdateProfileInformationForm extends Component
 
         if (FilamentCompanies::hasNotificationsFeature()) {
             if (method_exists($updater, 'profileInformationUpdated')) {
-                $updater->profileInformationUpdated(Auth::user(), $this->state);
+                $updater->profileInformationUpdated($this->user, $this->state);
             } else {
                 $this->profileInformationUpdated();
             }
@@ -82,7 +82,7 @@ class UpdateProfileInformationForm extends Component
      */
     public function deleteProfilePhoto(): void
     {
-        Auth::user()?->deleteProfilePhoto();
+        $this->user?->deleteProfilePhoto();
     }
 
     /**
@@ -90,7 +90,7 @@ class UpdateProfileInformationForm extends Component
      */
     public function sendEmailVerification(): void
     {
-        Auth::user()?->sendEmailVerificationNotification();
+        $this->user?->sendEmailVerificationNotification();
 
         $this->verificationLinkSent = true;
 

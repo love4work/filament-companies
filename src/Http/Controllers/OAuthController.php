@@ -139,6 +139,10 @@ class OAuthController extends Controller
     {
         $error_description = $request->input('error_description');
 
+        if ($error_description === null) {
+            $error_description = __('filament-companies::default.errors.generic_error');
+        }
+
         $targetUrl = $this->guard->check() ? filament()->getHomeUrl() : null;
 
         if ($targetUrl === null) {
