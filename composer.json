@@ -32,7 +32,7 @@
         "illuminate/console": "^11.0",
         "illuminate/contracts": "^11.0",
         "illuminate/support": "^11.0",
-        "laravel/socialite": "^5.5",
+        "laravel/socialite": "^5.15",
         "matomo/device-detector": "^6.3"
     },
     "require-dev": {
